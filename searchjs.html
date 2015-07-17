@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>SearchJS by darkoatanasovski</title>
+  
+  <script type='text/javascript' src='//code.jquery.com/jquery-2.1.3.js'></script>
+
+    
+      <script type='text/javascript' src="https://cdn.rawgit.com/darkoatanasovski/searchjs/1e8269205527061cef91f723d7c80dde18319917/searchjs.min.js"></script>
+    
+  
+  <style type='text/css'>
+    body{
+    font-family: sans-serif;
+}
+.hl{
+    background-color:yellow;
+}
+#settings{
+    margin-left:5px;
+    font-size:14px;
+}
+p{
+    padding:10px;
+    border:1px solid #e0e0e0;
+    margin:10px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -o-border-radius:3px;
+    border-bottom:2px solid #ddd;
+    background:#fff;
+  color: #444;
+  font-size: 17px;
+  line-height: 1.3em;
+}
+i{
+    margin:0px 0px -15px 10px;
+    background:#eee;
+    font-size:12px;
+    padding:5px;
+    display:table;
+}
+#q{
+     padding:5px;
+    font-size:20px;
+    margin-left:10px;
+}
+code{
+    padding:10px;
+    border-radius:2px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    -o-border-radius:2px;
+    background:#fff;
+    display:inline-block;
+    margin-left:10px;
+}
+.title{
+      margin: 0px 0px -10px 10px;
+}
+  </style>
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$(function(){
+    $('#q').keyup(function(){
+        search.term({
+            'string'     : this.value,
+            'container'  : '.searchable',
+            'searchType' : $('input[type="radio"]:checked').val(),
+            'ignoreCase' : $('input[type="checkbox"]:checked').length>0 ? true : false
+        });
+    });
+    $('#settings input').click(function(){
+        $('#q').keyup();
+    });
+});
+
+});//]]>  
+
+</script>
+
+
+</head>
+<body>
+  <input type="text" id="q" placeholder="Search...">
+    <div id="settings">
+        <input type="radio" name="searchType" id="mt" class="cval" value="match_terms"/><label for="mt"> match_terms</label>
+        <input type="radio" name="searchType" id="ms" class="cval" value="match_string" checked="checked"/><label for="ms"> match_string</label>
+<input type="checkbox" name="ignoreCase" id="ic" value="true" checked="checked"><label for="ic"> ignore case</label>
+    </div>
+    <p>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut ex turpis. Donec tincidunt sem in erat varius accumsan. Suspendisse faucibus quam sapien, in lobortis est malesuada id. Nulla orci justo, sagittis at magna nec, accumsan hendrerit nibh. Suspendisse auctor lacus sit amet enim tempor, ac laoreet lectus vulputate. In rutrum tincidunt interdum. Suspendisse a vulputate magna, ut sodales magna. Curabitur convallis sapien quis nisi lobortis euismod. Sed sollicitudin fermentum sapien, a blandit odio varius nec. Duis gravida nibh elementum mollis interdum. Nam lectus elit, finibus quis elementum id, pellentesque in quam. Aliquam vel tortor at nibh congue pellentesque. Nullam sollicitudin eros ac mi euismod ultrices. Proin odio quam, accumsan in condimentum ac, pellentesque sed lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam facilisis velit vestibulum neque sollicitudin consectetur.       
+    </p>
+    <i>Searchable area</i>
+    <p class="searchable">
+Pellentesque imperdiet aliquet mauris ut viverra. In neque lorem, lacinia eget placerat at, finibus in libero. Aliquam a sollicitudin lacus, ut blandit eros. Fusce a arcu vel enim ultrices tincidunt vel vel augue. Cras porttitor libero in risus tincidunt, sit amet vulputate nibh facilisis. Sed quis arcu vestibulum, facilisis lorem sit amet, pretium quam. Pellentesque nisi nibh, semper vitae tellus in, condimentum posuere dolor.
+        </p>
+        <p>
+Vestibulum placerat justo lacinia fermentum ornare. Donec lacus neque, luctus et ex a, ullamcorper condimentum eros. Maecenas ullamcorper libero nisi, sit amet interdum arcu dignissim lobortis. Vestibulum non tellus odio. Aenean a nulla volutpat, ullamcorper erat ac, tempor enim. Donec sit amet turpis felis. Duis malesuada varius velit quis tempus. Sed facilisis egestas facilisis. Duis et nunc et ipsum condimentum maximus. Aenean aliquam rutrum elit, nec efficitur augue gravida dignissim. Donec ac ornare lectus. Curabitur pretium erat odio, ut mollis felis blandit tristique. Nullam venenatis fermentum risus, non feugiat magna finibus id.
+    </p>
+    <div>
+<pre>
+<h2 class="title">Usage:</h2>
+  pure javascript
+<code>
+document.getElementById('q').addEventListener('keyup', function(){
+    search.term({
+        'string'     : this.value
+        ,'container' : '.searchable' // #element, .element or leave blank for entire document, not required
+        //,'searchType' : 'match_term' // mach_term or match_string, not required
+        //,'ignoreCase' : false // true or false, not required
+    });
+});
+</code>
+
+  jQuery
+<code>
+$('#q').keyup(function(){
+    search.term({
+        'string'     : this.value
+        ,'container' : '.searchable' // #element, .element or leave blank for entire document, not required
+        //,'searchType' : 'match_term' // mach_term or match_string, not required
+        //,'ignoreCase' : false // true or false, not required
+    });
+});
+</code>
+</pre>
+    </div>
+  
+</body>
+
+
+</html>
+
